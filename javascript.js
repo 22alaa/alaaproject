@@ -326,21 +326,7 @@ function closePurchaseModal() {
     const modal = document.getElementById('purchaseModal');
     if (modal) modal.classList.remove('active');
 }
-const closeBtn = document.getElementById('closeModal');
-const purchaseModal = document.getElementById('purchaseModal');
 
-if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-        purchaseModal.classList.remove('active'); // يغلق الـ modal
-    });
-}
-if (purchaseModal) {
-    purchaseModal.addEventListener('click', (e) => {
-        if (e.target === purchaseModal) {
-            purchaseModal.classList.remove('active'); // يغلق الـ modal
-        }
-    });
-}
 
 function renderFavorites() {
     const container = document.getElementById('favItems');
@@ -1232,3 +1218,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 })();
+
