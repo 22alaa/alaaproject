@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Register - Libyan Fit</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;700;900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="loader-overlay">
+            <div class="loader">
+                <div class="pulse"></div>
+                <div class="spin"></div>
+            </div>
+        </div>
+
+        <div class="bg-animations">
+            <div class="floating-orb float1"></div>
+            <div class="floating-orb float2"></div>
+            <div class="floating-orb float3"></div>
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">Libyan <span>Fit</span></a>
+
+            </div>
+        </nav>
+
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h2 data-lang-en="Create Account"
+                        data-lang-ar="إنشاء حساب">Create Account</h2>
+                    <p data-lang-en="Join the elite fitness community today"
+                        data-lang-ar="انضم إلى مجتمع اللياقة النخبوي اليوم">Join
+                        the elite fitness community today</p>
+                </div>
+
+                <form class="auth-form" id="registerForm">
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="fullname"
+                            placeholder=" " required>
+                        <label for="fullname" class="form-label"
+                            data-lang-en="Full Name"
+                            data-lang-ar="الاسم الكامل">Full Name</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" class="form-input" id="email"
+                            placeholder=" " required>
+                        <label for="email" class="form-label"
+                            data-lang-en="Email Address"
+                            data-lang-ar="البريد الإلكتروني">Email
+                            Address</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-input" id="password"
+                            placeholder=" " required>
+                        <label for="password" class="form-label"
+                            data-lang-en="Password"
+                            data-lang-ar="كلمة المرور">Password</label>
+                        <div class="password-strength">
+                            <div class="password-strength-bar"
+                                id="strengthBar"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-input"
+                            id="confirmPassword" placeholder=" " required>
+                        <label for="confirmPassword" class="form-label"
+                            data-lang-en="Confirm Password"
+                            data-lang-ar="تأكيد كلمة المرور">Confirm
+                            Password</label>
+                    </div>
+
+                    <button type="submit" class="auth-btn"
+                        data-lang-en="Register"
+                        data-lang-ar="تسجيل">Register</button>
+                </form>
+
+                <div class="auth-footer">
+                    <span data-lang-en="Already have an account?"
+                        data-lang-ar="لديك حساب بالفعل؟">Already have an
+                        account?</span>
+                    <a href="login.html" data-lang-en="Login"
+                        data-lang-ar="تسجيل الدخول">Login</a>
+                </div>
+            </div>
+        </div>
+
+        <script src="javascript.js"></script>
+    </body>
+</html>

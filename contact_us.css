@@ -1,0 +1,552 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+/* ---------------------------
+       LOADING SCREEN
+---------------------------- */
+#loading {
+    height: 100vh;
+    width: 100%;
+    background: #0d1b2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+}
+
+#loading span {
+    width: 6px;
+    height: 50px;
+    background: #00f2fe;
+    border-radius: 10px;
+    animation: loaderBars 0.9s infinite ease-in-out;
+}
+
+#loading span:nth-child(2) { animation-delay: 0.1s; background:#4facfe; }
+#loading span:nth-child(3) { animation-delay: 0.2s; background:#1C86C8; }
+#loading span:nth-child(4) { animation-delay: 0.3s; background:#4facfe; }
+#loading span:nth-child(5) { animation-delay: 0.4s; background:#00f2fe; }
+
+@keyframes loaderBars {
+    0%,40%,100% { transform: scaleY(0.2); }
+    20% { transform: scaleY(1); }
+}
+
+/* ---------------------------
+       MAIN SECTION
+---------------------------- */
+:root {
+    /* MAIN COLOR PALETTE */
+    --bg: #06283D;
+    --bg-light: #0A3A5A;
+    --fg: #DFF6FF;
+    --primary: #47CFFF;
+    --primary-light: #7FE9FF;
+    --glass-white: rgba(146, 210, 238, 0.15);
+    --glass-border: rgba(110, 158, 239, 0.25);
+    --card-per-row: 4; /* عدد الكروت اللي تبين في الشاشة الكبيرة */
+    /* Shadows */
+    --shadow-1: 0 4px 10px rgba(0, 0, 0, 0.2);
+    --shadow-2: 0 0 25px rgba(71, 207, 255, 0.6);
+}
+#main-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    background: #f5faff;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    background-color: var(--primary-light);
+}
+
+/* ---------------------------
+       NAVBAR (يدخل من فوق)
+---------------------------- */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'Inter', 'Poppins', system-ui;
+}
+.nav {
+    width: 100%;
+    padding: 2rem 5%;
+    background: #0d1b2a;
+    color: #fff;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: -100px;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: navbarDown 1.2s ease forwards 0.3s;
+}
+
+.nav{
+  /* grid-area: header; */
+  position: fixed;
+  width: 100%;
+  top:0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem ;
+  padding-bottom:2rem ;
+  padding-left: 9%;
+  padding-right: 2%;
+
+  /* Glass effect */
+  background: rgba(10, 58, 90, 0.5);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-1);
+  transition: all 0.4s ease;
+  transform: translateY(-30%); /* يبدأ فوق بنسبة 30% */
+  opacity: 0;
+  animation: navbarDrop 1s ease forwards;
+}
+
+@keyframes navbarDrop {
+  from {
+    transform: translateY(-30%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* LOGO */
+.logo{
+  font-size: 3.4rem;
+  color: var(--fg);
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.logo:hover{
+  transform: scale(1.08);
+  text-shadow: var(--shadow-2);
+}
+
+.logo span{
+  color: var(--primary);
+}
+
+/* NAVIGATION */
+.navbar{
+  display: flex;
+  align-items: center;
+}
+
+.navbar a{
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin-left: 4rem;
+  transition: all 0.3s ease;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar a:hover,
+.navbar a.active{
+    color: var(--primary-light);
+    border-bottom: 2px solid var(--primary-light);
+    text-shadow: 0 0 10px var(--primary);
+}
+
+/* CTA BUTTON */
+/* .nav-btn{
+  display: inline-block;
+  margin-left: 3rem;
+  padding: 1rem 2.8rem;
+
+  background: transparent;
+  color: var(--fg);
+
+  border: 2px solid var(--primary);
+  border-radius: 1rem;
+
+  font-size: 1.6rem;
+  font-weight: 600;
+  transition: all 0.4s ease;
+}
+
+.nav-btn:hover{
+  background: var(--primary);
+  color: #fff;
+  box-shadow: var(--shadow-2);
+} */
+
+
+.header-icons {
+  display: flex;
+  /* gap: 0.5rem; */
+  align-items: center;
+  justify-content: flex-end;
+  /* margin-left: auto; */
+  font-size: 2.2rem;
+}
+
+/* Search */
+.search-box {
+  position: relative;
+  width: 50px;
+  /* height: 40px; */
+  border-radius: 2rem;
+  /* background: rgba(255,255,255,0.15); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.search-box:hover,
+.search-box:focus-within {
+  width: 180px;
+  background: rgba(255,255,255,0.25);
+  padding-left: 1rem;
+}
+.search-icon{
+  left: 0;
+}
+
+
+.search-box .search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  width: 0;
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.search-box:hover .search-input,
+.search-box:focus-within .search-input {
+  width: 100%;
+  opacity: 1;
+}
+
+/* Icons */
+.icon-heart,
+.icon-cart {
+  position: relative;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.icon-count {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  background: #27BBF3;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 2px 5px;
+  border-radius: 50%;
+}
+
+.header-icons a,
+.search-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1.5rem;
+  transition: transform 0.2s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.header-icons a:hover,
+.search-box:hover {
+  transform: translateY(-5%);
+  color: #27BBF3;
+  text-shadow: 0 0 10px #A7E9FF;
+}
+
+/* Active (عند الضغط) */
+.header-icons a:active,
+.search-box:active {
+  transform: translateY(-8%);
+}
+
+#menu-icon{
+  font-size: 2.6rem;
+  color: var(--primary);
+  cursor: pointer;
+  display: none ;
+}
+/* Toggle Btn */
+.theme-btn {
+    position: fixed;
+    width:10%;
+    height: 10%;
+    top: 3%;
+    right: 3%;
+    padding: 1%;
+    border-radius: 50%;
+    font-size: 120%;
+    cursor: pointer;
+    /* background: var(--card-bg); */
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Theme Variables */
+:root {
+    --bg: #f7f7f7;
+    --text: #111;
+    --card-bg: #fff;
+    --border: #ccc;
+}
+
+.dark-mode {
+    --bg: #0e0e0e;
+    --text: #f7f7f7;
+    --card-bg: #1a1a1a;
+    --border: #333;
+}
+
+/* Apply Variables */
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+.contact-box, input, textarea {
+    background: var(--card-bg);
+    color: var(--text);
+    border-color: var(--border);
+}
+@keyframes navbarDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        top: 0;
+    }
+}
+
+/* ---------------------------
+       THANK YOU CARD
+---------------------------- */
+.thanks-card {
+    width: 80%;
+    margin: 5rem auto 4rem;
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 1.4rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    background-color: var(--primary);
+    box-shadow: var(--shadow-1);
+    text-align: center;
+    transform: translateY(40px);
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 1s;
+    transition: all 0.35s ease;
+}
+.thanks-card:hover{
+    transform: translateY(-5%);
+    /* box-shadow: var(--shadow-2); */
+    
+}
+.thanks-card img {
+    width: 140px;
+    margin-bottom: 1.5rem;
+    border-radius: 50%;
+}
+
+.thanks-card h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #0d1b2a;
+}
+
+.thanks-card p {
+    font-size: 1.6rem;
+    color: #4a4a4a;
+}
+
+/* Fade Up Animation */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------------------------
+       MAP + RATING
+---------------------------- */
+.map-section {
+    width: 90%;
+    margin: 4rem auto;
+    text-align: center;
+}
+
+.map-section h3 {
+    font-size: 2.4rem;
+    color: #0d1b2a;
+    margin-bottom: 2rem;
+}
+
+.map-section iframe {
+    width: 100%;
+    height: 350px;
+    border-radius: 1rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    margin-bottom: 2rem;
+}
+
+.rating {
+    font-size: 3rem;
+    color: gold;
+    margin-bottom: 2rem;
+}
+
+/* ---------------------------
+       FORM
+---------------------------- */
+.form-section {
+    width: 55%;
+    height: 100%;
+    margin: 4rem auto;
+    background: #fff;
+    padding: 3rem;
+    border-radius: 1.4rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.form-section h3 {
+    font-size: 2.6rem;
+    margin-bottom: 2rem;
+    color: #0d1b2a;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1.6rem;
+    border: 2px solid #d0d7df;
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    outline: none;
+    background: #f8fbff;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: #1C86C8;
+    transform: scale(1.02);
+}
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 12px;
+    font-size: 16px;
+    border: 2px solid #999;
+    border-radius: 8px;
+    background: transparent;
+    color: #fff; /* بدّلي حسب وضع الموقع */
+    outline: none;
+    transition: 0.3s ease;
+}
+
+/* تحسين لما نضغط عليه */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #5eb3ff;
+}
+
+/* اللابل داخل الحقل */
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #aaa;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+/* لما يصير تركيز أو القيمة مش فاضية */
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+    top: -8px;
+    /* background: #111;  */
+    /* باش يبان فوق البوردر */
+    padding: 0 6px;
+    font-size: 13px;
+    color: #5eb3ff;
+}
+button {
+    width: 100%;
+    padding: 1.6rem;
+    background: linear-gradient(135deg, #1C86C8, #00f2fe);
+    border: none;
+    border-radius: 1rem;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+/* ---------------------------
+       FOOTER
+---------------------------- */
+footer {
+    margin-top: 5rem;
+    padding: 2.5rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+    background: #0d1b2a;
+    color: #fff;
+}
+
+/* --------------------------- */

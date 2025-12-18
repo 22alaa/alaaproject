@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Equipment - Libyan Fit</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="loader-overlay">
+            <div class="loader">
+                <div class="pulse"></div>
+                <div class="spin"></div>
+            </div>
+        </div>
+
+        <div class="bg-animations">
+            <div class="floating-orb float1"></div>
+            <div class="floating-orb float2"></div>
+            <div class="floating-orb float3"></div>
+            <div class="particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">Libyan <span>Fit</span></a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn"><i
+                        class="fa fa-bars"></i></button>
+                <div class="nav-links">
+                    <a href="index.html" data-lang-en="Home"
+                        data-lang-ar="الرئيسية">Home</a>
+                    <a href="clothes.html" data-lang-en="Clothes"
+                        data-lang-ar="الملابس">Clothes</a>
+                    <a href="games.html" data-lang-en="Games"
+                        data-lang-ar="الألعاب">Games</a>
+                    <a href="equipment.html" data-lang-en="Equipment"
+                        data-lang-ar="المعدات">Equipment</a>
+                    <a href="gyms.html" data-lang-en="Gyms"
+                        data-lang-ar="الصالات">Gyms</a>
+                    <a href="contact_us.html"
+                        data-lang-en="Contact Us"
+                        data-lang-ar="اتصل بنا">Contact Us</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="icon-btn" id="favBtn">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2"><path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
+                        <span class="badge" id="favCount">0</span>
+                    </button>
+                    <button class="icon-btn" id="cartBtn">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2"><path
+                                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line
+                                x1="3" y1="6" x2="21" y2="6" /><path
+                                d="M16 10a4 4 0 0 1-8 0" /></svg>
+                        <span class="badge" id="cartCount">0</span>
+                    </button>
+                    <button class="icon-btn" id="langBtn" data-lang-en="AR"
+                        data-lang-ar="EN">AR</button>
+                    <button class="icon-btn" id="themeBtn">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2"><circle
+                                cx="12" cy="12" r="5" /><line x1="12" y1="1"
+                                x2="12" y2="3" /><line x1="12" y1="21" x2="12"
+                                y2="23" /><line x1="4.22" y1="4.22" x2="5.64"
+                                y2="5.64" /><line x1="18.36" y1="18.36"
+                                x2="19.78" y2="19.78" /><line x1="1" y1="12"
+                                x2="3" y2="12" /><line x1="21" y1="12" x2="23"
+                                y2="12" /><line x1="4.22" y1="19.78" x2="5.64"
+                                y2="18.36" /><line x1="18.36" y1="5.64"
+                                x2="19.78" y2="4.22" /></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="panel" id="favPanel">
+            <div class="panel-header">
+                <h3 data-lang-en="Favorites"
+                    data-lang-ar="المفضلة">Favorites</h3>
+                <button class="close-panel" data-panel="favPanel">×</button>
+            </div>
+            <div class="panel-content" id="favItems"></div>
+        </div>
+
+        <div class="panel" id="cartPanel">
+            <div class="panel-header">
+                <h3 data-lang-en="Shopping Cart"
+                    data-lang-ar="سلة التسوق" class="color-animate">Shopping Cart</h3>
+                <button class="close-panel" data-panel="cartPanel">×</button>
+            </div>
+            <div class="panel-content" id="cartItems"></div>
+            <div class="panel-footer">
+                <div class="total">
+                    <span data-lang-en="Total:"
+                        data-lang-ar="الإجمالي:">Total:</span>
+                    <span id="cartTotal">$0</span>
+                </div>
+                <button class="checkout-btn" data-lang-en="Checkout"
+                    data-lang-ar="الدفع">Checkout</button>
+            </div>
+        </div>
+
+        <section class="products-page">
+            <h1 data-lang-en="Training Equipment"
+                data-lang-ar="معدات التدريب">Training Equipment</h1>
+            <div class="search-container product-search">
+                <input type="text" class="search-input"
+                    placeholder="Search products..."
+                    data-lang-en="Search products..."
+                    data-lang-ar="ابحث عن المنتجات...">
+            </div>
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all"
+                    data-lang-en="All" data-lang-ar="الكل">All</button>
+                <button class="filter-btn" data-filter="weights"
+                    data-lang-en="Weights" data-lang-ar="أوزان">Weights</button>
+                <button class="filter-btn" data-filter="cardio"
+                    data-lang-en="Cardio" data-lang-ar="كارديو">Cardio</button>
+                <button class="filter-btn" data-filter="accessories"
+                    data-lang-en="Accessories"
+                    data-lang-ar="إكسسوارات">Accessories</button>
+            </div>
+            <div class="products-grid" id="productsGrid"></div>
+        </section>
+
+        <footer>
+            <div class="footer-glow"></div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="logo">Libyan <span>Fit</span></h3>
+                    <p data-lang-en="Transform your life with elite training"
+                        data-lang-ar="حول حياتك مع التدريب النخبوي">Transform
+                        your life with elite training</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-lang-en="Quick Links"
+                        data-lang-ar="روابط سريعة">Quick Links</h4>
+                    <a href="index.html" data-lang-en="Home"
+                        data-lang-ar="الرئيسية">Home</a>
+                    <a href="clothes.html" data-lang-en="Clothes"
+                        data-lang-ar="الملابس">Clothes</a>
+                    <a href="equipment.html" data-lang-en="Equipment"
+                        data-lang-ar="المعدات">Equipment</a>
+                    <a href="gyms.html" data-lang-en="Gyms"
+                        data-lang-ar="الصالات">Gyms</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-lang-en="Contact"
+                        data-lang-ar="اتصل بنا">Contact</h4>
+<p><a href = "mailto:alaaalkamil2005@gmail.com">alaaalkamil2005@gmail.com</a> </p>
+                    <p><a href="tel:+218 92-6297284"> 092-6297284</a></p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" class="social-icon"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" class="social-icon"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" class="social-icon"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" class="social-icon"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-lang-en="All rights reserved © 2025 Libyan Fit"
+                    data-lang-ar="جميع الحقوق محفوظة © 2025 ليبيان فيت">All
+                    rights reserved © 2025 Libyan Fit</p>
+            </div>
+        </footer>
+        <div class="purchase-modal" id="purchaseModal">
+            <div class="purchase-modal-content">
+                <button class="close-modal" id="closeModal">×</button>
+                <h2 data-lang-en="Complete Your Order"
+                    data-lang-ar="أكمل طلبك">Complete Your Order</h2>
+                <form class="purchase-form" id="purchaseForm">
+                    <div class="form-group">
+                        <input type="text" class="form-input" required
+                            placeholder=" ">
+                        <label class="form-label" data-lang-en="Full Name"
+                            data-lang-ar="الاسم الكامل">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" required
+                            placeholder=" ">
+                        <label class="form-label" data-lang-en="City / Location"
+                            data-lang-ar="المدينة / الموقع">City /
+                            Location</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-input" required
+                            placeholder=" ">
+                        <label class="form-label" data-lang-en="Phone Number"
+                            data-lang-ar="رقم الهاتف">Phone Number</label>
+                    </div>
+                    <button type="submit" class="auth-btn"
+                        data-lang-en="Submit Order"
+                        data-lang-ar="إرسال الطلب">Submit Order</button>
+                </form>
+            </div>
+        </div>
+        <script src="javascript.js"></script>
+        <script>
+const equipmentProducts=[
+{id:21,name:'Pro Dumbbells Set',nameAr:'طقم دمبل محترف',price:199,image:'images-project/product2.jpg',category:'accessories'},
+{id:22,name:'Resistance Bands',nameAr:'أحزمة المقاومة',price:39,image:'images-project/product3.jpg',category:'weights'},
+{id:23,name:'Yoga Mat Premium',nameAr:'سجادة يوغا مميزة',price:49,image:'images-project/product5.jpg',category:'weights'},
+{id:24,name:'Kettlebell 20kg',nameAr:'كيتل بيل 20 كجم',price:89,image:'images-project/product6.jpg',category:'cardio'},
+{id:25,name:'Jump Rope Pro',nameAr:'حبل القفز المحترف',price:29,image:'images-project/product7.jpg',category:'cardio'},
+{id:26,name:'Weight Bench',nameAr:'مقعد الأوزان',price:249,image:'images-project/product4.jpg',category:'weights'}
+];
+window.productsData=equipmentProducts;
+</script>
+    </body>
+</html>
