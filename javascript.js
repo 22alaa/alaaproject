@@ -314,14 +314,21 @@ function openPurchaseModal() {
         modal.classList.add('active'); // تظهر نافذة اكمل الطلب
         applyLanguage();
     }
-}
-
-purchaseForm.addEventListener('submit', (e) => {
+    purchaseForm.addEventListener('submit', (e) => {
     e.preventDefault();
     alert('تم الحجز، سيتم التواصل معك');
     purchaseForm.reset();
     closePurchaseModal();
 });
+}
+const checkoutBtn = document.querySelector('.checkout-btn');
+if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openPurchaseModal(); // يفتح نافذة الطلب
+    });
+}
+
 function closePurchaseModal() {
     const modal = document.getElementById('purchaseModal');
     if (modal) modal.classList.remove('active');
@@ -1218,4 +1225,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 })();
+
 
