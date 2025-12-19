@@ -257,8 +257,6 @@ function updateQuantity(id, delta) {
     }
 }
 
-
-
 function addToFavorites(product) {
     if (!State.favorites.find(item => item.id === product.id)) {
         State.favorites.push(product);
@@ -301,13 +299,18 @@ function renderCart() {
 </div>
 `).join('');
 }
-const checkoutBtn = document.querySelector('.checkout-btn');
-if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        openPurchaseModal(); // يفتح نافذة الطلب
-    });
+function openPurchaseModal() {
+    const modal = document.getElementById('purchaseModal');
+    if (modal) {
+        modal.classList.add('active'); // تظهر نافذة اكمل الطلب
+        applyLanguage();
+    }
 }
+function closePurchaseModal() {
+    const modal = document.getElementById('purchaseModal');
+    if (modal) modal.classList.remove('active');
+}
+
 function openPurchaseModal() {
     const modal = document.getElementById('purchaseModal');
     if (modal) {
@@ -329,12 +332,11 @@ if (checkoutBtn) {
     });
 }
 
+
 function closePurchaseModal() {
     const modal = document.getElementById('purchaseModal');
     if (modal) modal.classList.remove('active');
 }
-
-
 function renderFavorites() {
     const container = document.getElementById('favItems');
     if (State.favorites.length === 0) {
@@ -1225,5 +1227,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 })();
-
-
